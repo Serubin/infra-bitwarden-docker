@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  bitwarden:
+    image: mprasil/bitwarden:latest
+    restart: always
+    ports:
+      - 80:80
+    volumes:
+      - /opt/data/bitwarden:/data/
+    networks:
+      - traefik
+      - default
+    labels:
+      - "traefik.enable=true"
+      - "traefik.domain=bitwarden.serubin.net"
+      - "traefik.frontend.rule=Host: bitwarden.serubin.net"
+      - "traefik.docker.network=traefik"
+      - "traefik.port=7079"
+
+
+networks:
+  traefik:
+    external: true
