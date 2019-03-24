@@ -1,11 +1,11 @@
+# vim: ts=2:sts=2:sw=2:expandtab
+
 version: '3'
 
 services:
   bitwarden:
     image: mprasil/bitwarden:latest
     restart: always
-    ports:
-      - 80:80
     volumes:
       - /opt/data/bitwarden:/data/
     networks:
@@ -16,8 +16,7 @@ services:
       - "traefik.domain=bitwarden.serubin.net"
       - "traefik.frontend.rule=Host: bitwarden.serubin.net"
       - "traefik.docker.network=traefik"
-      - "traefik.port=7079"
-
+      - "traefik.port=80"
 
 networks:
   traefik:
