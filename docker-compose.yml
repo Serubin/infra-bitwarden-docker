@@ -8,6 +8,8 @@ services:
     restart: always
     volumes:
       - /opt/data/bitwarden:/data/
+    env_file:
+      - yubico.env
     networks:
       - traefik
       - default
