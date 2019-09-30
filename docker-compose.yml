@@ -15,14 +15,15 @@ services:
       - yubico.env
     networks:
       - default
-      - service-default
+      - traefik-public
     labels:
       - "traefik.enable=true"
       - "traefik.domain=bitwarden.serubin.net"
       - "traefik.frontend.rule=Host: bitwarden.serubin.net"
-      - "traefik.docker.network=service-default"
+      - "traefik.tags=traefik-public"
+      - "traefik.docker.network=traefik-public"
       - "traefik.port=80"
 
 networks:
-  service-default:
+  traefik-public:
     external: true
