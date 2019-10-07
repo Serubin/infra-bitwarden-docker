@@ -23,5 +23,9 @@ deploy-prod:
   stage: deploy
   script:
     - docker stack deploy -c docker-compose.yml --with-registry-auth $(echo $CI_PROJECT_NAME | sed 's/-docker//')
+  environment:
+    name: production
+    url: https://bitwarden.serubin.net
+
   only:
     - master
