@@ -8,6 +8,8 @@ stages:
   - deploy
 
 build-prod:
+  tags:
+    - docker
   stage: build
   script:
     - docker-compose build
@@ -15,6 +17,9 @@ build-prod:
     - master
 
 deploy-prod:
+  tags:
+    - docker
+    - swarm
   stage: deploy
   script:
     - docker stack deploy -c docker-compose.yml --with-registry-auth $(echo $CI_PROJECT_NAME | sed 's/-docker//')
