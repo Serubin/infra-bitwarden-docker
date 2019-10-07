@@ -11,8 +11,9 @@ services:
         condition: on-failure
     volumes:
       - /opt/data/bitwarden:/data/
-    env_file:
-      - yubico.env
+    environment:
+      - YUBICO_CLIENT_ID=$YUBICO_CLIENT_ID
+      - YUBICO_SECRET_KEY=$YUBICO_SECRET_KEY
     networks:
       - default
       - traefik-public
