@@ -14,6 +14,8 @@ services:
     environment:
       - YUBICO_CLIENT_ID=$YUBICO_CLIENT_ID
       - YUBICO_SECRET_KEY=$YUBICO_SECRET_KEY
+      - ADMIN_TOKEN=$ADMIN_TOKEN
+      - DISABLE_ADMIN_TOKEN=$DISABLE_ADMIN_TOKEN
     networks:
       - default
       - traefik-public
