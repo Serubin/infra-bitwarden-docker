@@ -4,7 +4,7 @@ version: '3'
 
 services:
   bitwarden:
-    image: bitwardenrs/server:alpine
+    image: vaultwarden/server:alpine
     deploy:
       replicas: 1
       restart_policy:
